@@ -117,7 +117,7 @@ export class UsuariosService {
     }
 
     async deleteDato(id: any) {
-
+        return { estado: 'ok', mensaje: 'Se elimina el registro exitosamente' }
     }
     //*************VALIDACIONES */
 

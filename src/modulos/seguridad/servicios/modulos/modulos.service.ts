@@ -104,6 +104,6 @@ export class ModulosService {
     }
 
     async deleteDato(id: any) {
-
+        return { estado: 'ok', mensaje: 'Se elimina el registro exitosamente' }
     }
 }

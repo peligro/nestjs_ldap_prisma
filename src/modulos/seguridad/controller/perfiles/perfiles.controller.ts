@@ -1,6 +1,8 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { PerfilesService } from '../../servicios/perfiles/perfiles.service';
 import { PerfilesDto } from '../../dto/perfiles.dto.';
+import { PerfilesInterface } from 'src/interfaces/perfiles.interface';
+import { GeneralInterface } from 'src/interfaces/general-interface.interface';
 
 @Controller('perfiles')
 export class PerfilesController {
@@ -8,31 +10,31 @@ export class PerfilesController {
 
     @Get()
     @HttpCode(HttpStatus.OK)
-    index() {
+    index():Promise<PerfilesInterface[]> {
         return this.perfilesService.getDatos();
     }
 
     @Get(':id')
     @HttpCode(HttpStatus.OK)
-    show(@Param() params) {
+    show(@Param() params):Promise<PerfilesInterface> {
         return this.perfilesService.getDato(parseInt(params.id));
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    create(@Body() dto: PerfilesDto) {
+    create(@Body() dto: PerfilesDto):Promise<GeneralInterface> {
         return this.perfilesService.addDatos(dto);
     }
 
     @Put(':id')
     @HttpCode(HttpStatus.OK)
-    update(@Param() params, @Body() dto: PerfilesDto) {
+    update(@Param() params, @Body() dto: PerfilesDto):Promise<GeneralInterface> {
         return this.perfilesService.updateDatos(parseInt(params.id), dto)
     }
 
     @Delete(':id')
     @HttpCode(HttpStatus.OK)
-    destroy(@Param() params) {
+    destroy(@Param() params):Promise<GeneralInterface> {
         return this.perfilesService.deleteDato(parseInt(params.id));
     }
 }
