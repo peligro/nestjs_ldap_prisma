@@ -81,7 +81,7 @@ export class PerfilesModulosService {
                     id: dto.perfil_id
                 }
             });
-        let modulo = await this.prisma.estado.findFirst(
+        let modulo = await this.prisma.modulo.findFirst(
             {
                 where:
                 {

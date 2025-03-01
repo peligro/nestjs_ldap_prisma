@@ -17,12 +17,16 @@ model estado {
   id      Int       @id @default(autoincrement())
   nombre  String
   usuario usuario[]
+
+  @@index([nombre])
 }
 
 model modulo {
   id            Int             @id @default(autoincrement())
   nombre        String
   perfil_modulo perfil_modulo[]
+
+  @@index([nombre])
 }
 
 model perfil {
@@ -31,6 +35,8 @@ model perfil {
   descripcion   String          @db.Text
   usuario       usuario[]
   perfil_modulo perfil_modulo[]
+
+  @@index([nombre])
 }
 
 model perfil_modulo {
@@ -39,6 +45,8 @@ model perfil_modulo {
   modulo_id Int
   perfil    perfil @relation(fields: [perfil_id], references: [id])
   perfil_id Int
+
+  @@index([modulo_id])
 }
 
 model usuario {
@@ -48,4 +56,7 @@ model usuario {
   estado_id Int
   perfil    perfil @relation(fields: [perfil_id], references: [id])
   perfil_id Int
+  @@index([correo])
+  @@index([estado_id])
+  @@index([perfil_id])
 }

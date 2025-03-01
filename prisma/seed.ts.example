@@ -1,0 +1,123 @@
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+async function main() {
+    console.log('🌱 Iniciando la siembra de datos...');
+    //estados
+    await prisma.estado.create(
+        {
+            data:
+            {
+                id: 1,
+                nombre: "Activo"
+            }
+        });
+    await prisma.estado.create(
+        {
+            data:
+            {
+                id: 2,
+                nombre: "No Activo"
+            }
+        });
+    //perfiles
+    await prisma.perfil.create(
+        {
+            data:
+            {
+                id: 1,
+                nombre: "Administrador",
+                descripcion: "Tiene acceso a todos los módulos de la aplicación"
+            }
+        });
+    await prisma.perfil.create(
+        {
+            data:
+            {
+                id: 2,
+                nombre: "Sin acceso",
+                descripcion: "Puede entrar a la aplicación pero no cuenta con acceso a ningún módulo"
+            }
+        });
+
+    //módulos
+    await prisma.modulo.create(
+        {
+            data:
+            {
+                id: 1,
+                nombre: "Módulos"
+            }
+        });
+    await prisma.modulo.create(
+        {
+            data:
+            {
+                id: 2,
+                nombre: "Perfiles"
+            }
+        });
+    await prisma.modulo.create(
+        {
+            data:
+            {
+                id: 3,
+                nombre: "Usuarios"
+            }
+        });
+    //perfil
+    await prisma.perfil_modulo.create(
+        {
+            data:
+            {
+                id: 1,
+                perfil_id: 1,
+                modulo_id: 1
+            }
+        });
+    await prisma.perfil_modulo.create(
+        {
+            data:
+            {
+                id: 2,
+                perfil_id: 1,
+                modulo_id: 2
+            }
+        });
+    await prisma.perfil_modulo.create(
+        {
+            data:
+            {
+                id: 3,
+                perfil_id: 1,
+                modulo_id: 3
+            }
+        });
+    //usuarios
+    await prisma.usuario.create(
+        {
+            data:
+            {
+                id: 1,
+                correo: "mail@dominio.com",
+                estado_id: 1,
+                perfil_id: 1
+            }
+        });
+  
+   
+
+    console.log('✅ Siembra de datos completada.');
+}
+
+main()
+    .catch((e) => {
+        console.error(e);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });
+//para ejecutar:
+//npm run db:seed
