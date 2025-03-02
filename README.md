@@ -40,5 +40,5 @@ Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest e
 <hr/>
 ## 3. Documentación APIs a través de Swagger:<br/>
 <ul>
-    <li><a href="http://localhost:{PUERTO}/documentacion#/">/documentacion#/</a></li>
+    <li><a href="http://localhost:{PUERTO}/documentacion#/">http://localhost:{PUERTO}/documentacion#/</a></li>
 </ul>
