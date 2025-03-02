@@ -9,8 +9,8 @@ async function bootstrap() {
    //swagger
 
    const config = new DocumentBuilder()
-   .setTitle('API desde el curso fullstack')
-   .setDescription('API creada de ejemplo para curso fullstack con Nestjs y Prisma ORM')
+   .setTitle('MI CD')
+   .setDescription('Documentación APIs proyecto MI CD')
    .setVersion('1.0.0')
    .addTag("Seguridad/Estados")
    .addTag("Seguridad/Módulos")
