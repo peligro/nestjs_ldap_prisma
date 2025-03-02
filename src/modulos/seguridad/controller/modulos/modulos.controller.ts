@@ -3,8 +3,10 @@ import { ModulosService } from '../../servicios/modulos/modulos.service';
 import { ModuloDto } from '../../dto/modulo.dto';
 import { ModulosInterface } from 'src/interfaces/modulos.interface';
 import { GeneralInterface } from 'src/interfaces/general-interface.interface';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('modulos')
+@ApiTags("Seguridad/Módulos")
 export class ModulosController {
     constructor(private modulosService: ModulosService) { }
 
@@ -22,7 +24,7 @@ export class ModulosController {
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    create(@Body() dto: ModuloDto):Promise<GeneralInterface> {
+    create(@Body() dto: ModuloDto)  {
         return this.modulosService.addDatos(dto);
     }
 

@@ -3,8 +3,10 @@ import { PerfilesModulosService } from '../../servicios/perfiles_modulos/perfile
 import { PerfilesModulosDto } from '../../dto/perfiles_modulos.dto';
 import { GeneralInterface } from 'src/interfaces/general-interface.interface';
 import { PerfilesModulosInterface } from 'src/interfaces/perfiles_modulos.interface';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('perfiles-modulos')
+@ApiTags("Seguridad/Perfiles Módulos")
 export class PerfilesModulosController {
     constructor(private perfilesModulosService: PerfilesModulosService) { }
 

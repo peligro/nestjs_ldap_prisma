@@ -3,13 +3,18 @@ import { EstadosService } from '../../servicios/estados/estados.service';
 import { EstadoDto } from '../../dto/estado.dto';
 import { EstadosInterface } from 'src/interfaces/estados.interface';
 import { GeneralInterface } from 'src/interfaces/general-interface.interface';
+import { ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { EstadoResponseDto } from '../../dto/estado_response.dto';
+import { GenericoDto } from 'src/dto/generico.dto';
 
 @Controller('estados')
+@ApiTags("Seguridad/Estados")
 export class EstadosController {
 
     constructor(private estadosService:EstadosService){}
 
     @Get()
+    @ApiResponse({ status: 200, description: 'Autenticación exitosa', type: [EstadoResponseDto] })
     @HttpCode(HttpStatus.OK)
     index():Promise<EstadosInterface[]> 
     {
@@ -17,6 +22,7 @@ export class EstadosController {
     }
 
     @Get(':id')
+    @ApiParam({ name: 'id', description: 'ID', type: Number })
     @HttpCode(HttpStatus.OK)
     show(@Param() params):Promise<EstadosInterface>
     {
@@ -24,6 +30,7 @@ export class EstadosController {
     }
 
     @Post()
+    @ApiResponse({ status: 200, description: 'Se crea registro exitosamente', type: GenericoDto })
     @HttpCode(HttpStatus.CREATED)
     create(@Body() dto:EstadoDto):Promise<GeneralInterface>
     {
@@ -31,6 +38,8 @@ export class EstadosController {
     }
 
     @Put(':id')
+    @ApiParam({ name: 'id', description: 'ID', type: Number })
+    @ApiResponse({ status: 200, description: 'Se modifica registro exitosamente', type: GenericoDto })
     @HttpCode(HttpStatus.OK)
     update(@Param() params, @Body() dto:EstadoDto):Promise<GeneralInterface>
     {
@@ -38,6 +47,8 @@ export class EstadosController {
     }
 
     @Delete(':id')
+    @ApiParam({ name: 'id', description: 'ID', type: Number })
+    @ApiResponse({ status: 200, description: 'Se elimina registro exitosamente', type: GenericoDto })
     @HttpCode(HttpStatus.OK)
     destroy(@Param() params):Promise<GeneralInterface>
     {

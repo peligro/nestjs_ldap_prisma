@@ -30,5 +30,10 @@ Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest e
 - Nest validaciones:<br/>
 <code>npm i --save class-validator class-transformer</code>
 </li>
+ <li>
+- Nest swagger:<br/>
+<code>npm install --save @nestjs/swagger</code>
+</li>
+
 </ul>
 
