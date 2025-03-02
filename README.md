@@ -1,12 +1,12 @@
 Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest en su versión 11. y optimizado para el Sistema Gestor de Bases de datos PostgreSQL
 
-
+<hr/>
 ## 1. Requisitos previos
 
 - Tener instalado Node.js (versión recomendada: 20.x o superior).
 
 - Tener instalado NEST CLI globalmente:
-
+<hr/>
 ## 2. Librerías utilizadas
 <ul>
 <li>
@@ -37,3 +37,8 @@ Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest e
 
 </ul>
 
+<hr/>
+## 3. Documentación APIs a través de Swagger:<br/>
+<ul>
+    <li><a href="/documentacion#/">/documentacion#/</a></li>
+</ul>
