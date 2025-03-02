@@ -10,6 +10,10 @@ Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest e
 ## 2. Librerías utilizadas
 <ul>
 <li>
+- Nest client:<br/>
+<code>npm i -g @nestjs/cli</code>
+</li>
+<li>
 - Nest config:<br/>
 <code>npm i --save @nestjs/config</code>
 </li>
