@@ -14,7 +14,7 @@ export class EstadosController {
     constructor(private estadosService:EstadosService){}
 
     @Get()
-    @ApiResponse({ status: 200, description: 'Autenticación exitosa', type: [EstadoResponseDto] })
+    @ApiResponse({ status: 200, description: 'Arreglo de datos', type: [EstadoResponseDto] })
     @HttpCode(HttpStatus.OK)
     index():Promise<EstadosInterface[]> 
     {
@@ -22,6 +22,7 @@ export class EstadosController {
     }
 
     @Get(':id')
+    @ApiResponse({ status: 200, description: 'Dato por ID', type: EstadoResponseDto })
     @ApiParam({ name: 'id', description: 'ID', type: Number })
     @HttpCode(HttpStatus.OK)
     show(@Param() params):Promise<EstadosInterface>
@@ -30,7 +31,7 @@ export class EstadosController {
     }
 
     @Post()
-    @ApiResponse({ status: 200, description: 'Se crea registro exitosamente', type: GenericoDto })
+    @ApiResponse({ status: 201, description: 'Se crea registro exitosamente', type: GenericoDto })
     @HttpCode(HttpStatus.CREATED)
     create(@Body() dto:EstadoDto):Promise<GeneralInterface>
     {

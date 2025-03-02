@@ -26,6 +26,11 @@ export class UsuariosService {
                 where:
                 {
                     id: id
+                },select: {
+                    id: true,
+                    correo: true,
+                    estado: true,
+                    perfil: true
                 }
             });
         if (!datos) {
