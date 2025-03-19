@@ -1,4 +1,4 @@
-Este repositorio de MiCD, contiene el proyecto Backend Web, trabajado con Nest en su versión 11. y optimizado para el Sistema Gestor de Bases de datos PostgreSQL
+Este repositorio, un ejemplo de Backend Web, trabajado con Nest en su versión 11. y optimizado para el Sistema Gestor de Bases de datos PostgreSQL
 
 <hr/>
 ## 1. Requisitos previos
